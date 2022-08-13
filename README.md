@@ -1,8 +1,6 @@
 # Pos-graduacao - Resumo
 O estudo proposto deve seguir como modelo para projeto piloto de aprendizagem de máquina para predição de informações o desempenho de controle de produção de um produtor de leite do Paraná. Com o uso de trinta e três (33) relatórios de Controle Periódico no período de dois (02) anos e nove (09) meses de dados enviados mensalmente para a cooperativa de lacticínios da região. Em uma segunda parte, com os dados de desempenho do dia/mês das vacas: registro do nascimento da vaca, leite diário, porcentagem lactose, gordura, proteína e sólidos.
 
-Entendido como prioridade o uso do aplicativo Excel para separar os dados, que foram concluídos a somatória dos leites, para obter-se o total de leite diário. A seleção do último mês dos dados de idade das vacas foi separada em duas planilhas, uma das quais poderia verificar todos os dados possíveis que havia no relatório diário.
-
 O produtor de leite percebeu ser fundamental maximizar a produção de leite e alguns de seus elementos, a alternativa da alimentação juntamente equacionada com o cruzamento de qualidade animal, que por outro lado traz melhores resultados no montante de leite produzido pela vaca. Diante das informações do produtor traçou os objetivos que atendeu a contento a lacuna pouco explorada para evidenciar os questionamentos de predição.
 
 Dentro do Aprendizado de Máquina alguns métodos foram importantes para auxiliar, sendo eles, aprendizado supervisionado com os algoritmos treinados por rótulos, com criação de modelos para fazer previsões com autocorreção que conseguiu uma taxa razoável de acurácia.
