@@ -64,19 +64,26 @@ Este notebook é semelhante ao anterior, mas analisa a sazonalidade em uma séri
 
 ## Regressão_Linear_Updated.ipynb
 
-Este notebook aborda o tema da regressão linear em séries temporais. Ele utiliza bibliotecas como numpy, pandas, matplotlib e seaborn para realizar as seguintes tarefas:
+Este notebook demonstra a aplicação da regressão linear simples em um conjunto de dados. Ele contém os seguintes passos:
 
-1. Carregar os dados de uma planilha em formato Excel.
-2. Verificar os tipos de dados e tratar eventuais problemas.
-3. Verificar a presença de valores nulos nos dados.
-4. Calcular a matriz de correlação entre os atributos.
-5. Dividir os dados em conjuntos de treinamento e teste.
-6. Treinar um modelo de regressão linear e fazer previsões.
-7. Avaliar o desempenho do modelo usando métricas como R², MAE, MSE e MAPE.
+1. Carregamento dos dados de um arquivo Excel.
+2. Análise exploratória dos dados, incluindo a visualização de histogramas e a matriz de correlação.
+3. Pré-processamento dos dados, incluindo a transformação de atributos e normalização.
+4. Divisão dos dados em conjuntos de treinamento e teste.
+5. Treinamento do modelo de regressão linear.
+6. Avaliação do modelo usando métricas de desempenho, como erro médio absoluto, erro quadrático médio e acurácia.
 
 ## Regressão_Updated.ipynb
 
-Este notebook é semelhante ao anterior e também aborda o tema da regressão linear em séries temporais. Ele utiliza as mesmas bibliotecas e métodos descritos no notebook anterior.
+Este notebook mostra a aplicação da regressão linear múltipla em um conjunto de dados com múltiplos atributos. Ele segue uma abordagem semelhante ao notebook anterior e inclui os seguintes passos:
 
+1. Carregamento dos dados de um arquivo Excel.
+2. Manipulação de dados ausentes usando a estratégia da média.
+3. Normalização dos dados usando a escala mínima-máxima.
+4. Divisão dos dados em conjuntos de treinamento e teste.
+5. Treinamento do modelo de regressão linear para prever diferentes variáveis dependentes.
+6. Avaliação do modelo usando métricas de desempenho, como erro médio absoluto, erro quadrático médio e validação cruzada.
+
+Os notebooks também incluem visualizações gráficas para ajudar na compreensão dos dados e resultados.
 
 Cada notebook contém uma descrição detalhada dos passos realizados em cada tarefa, bem como a visualização de gráficos e resultados. Os dados utilizados nos notebooks são carregados a partir de planilhas em formato Excel, sendo necessário fazer o upload dos arquivos antes de executar os códigos.
