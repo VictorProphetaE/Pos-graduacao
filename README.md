@@ -46,7 +46,7 @@ Este notebook contém códigos para realizar a análise de sazonalidade em uma s
 7. Treinar e testar modelos de previsão usando regressão linear.
 8. Avaliar o desempenho dos modelos.
 
-## Sazo prot.ipynb
+## Sazonalidade_Proteina_Updated.ipynb
 
 Este notebook também trata da análise de sazonalidade em séries temporais. Ele utiliza bibliotecas como numpy, pandas, matplotlib, seaborn e statsmodels para realizar as seguintes tarefas:
 
@@ -58,11 +58,11 @@ Este notebook também trata da análise de sazonalidade em séries temporais. El
 6. Plotar a função de autocorrelação.
 7. Realizar previsões usando o método de Holt-Winters.
 
-## Sazo gordura.ipynb
+## SSazonalidade_Gordura_Updated.ipynb
 
 Este notebook é semelhante ao anterior, mas analisa a sazonalidade em uma série temporal específica relacionada ao percentual de gordura. Ele utiliza as mesmas bibliotecas e métodos descritos no notebook anterior.
 
-## Regressão Linear.ipynb
+## Regressão_Linear_Updated.ipynb
 
 Este notebook aborda o tema da regressão linear em séries temporais. Ele utiliza bibliotecas como numpy, pandas, matplotlib e seaborn para realizar as seguintes tarefas:
 
@@ -74,7 +74,7 @@ Este notebook aborda o tema da regressão linear em séries temporais. Ele utili
 6. Treinar um modelo de regressão linear e fazer previsões.
 7. Avaliar o desempenho do modelo usando métricas como R², MAE, MSE e MAPE.
 
-## Regressão.ipynb
+## Regressão_Updated.ipynb
 
 Este notebook é semelhante ao anterior e também aborda o tema da regressão linear em séries temporais. Ele utiliza as mesmas bibliotecas e métodos descritos no notebook anterior.
 
