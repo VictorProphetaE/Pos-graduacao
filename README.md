@@ -58,7 +58,7 @@ Este notebook também trata da análise de sazonalidade em séries temporais. El
 6. Plotar a função de autocorrelação.
 7. Realizar previsões usando o método de Holt-Winters.
 
-## SSazonalidade_Gordura_Updated.ipynb
+## Sazonalidade_Gordura_Updated.ipynb
 
 Este notebook é semelhante ao anterior, mas analisa a sazonalidade em uma série temporal específica relacionada ao percentual de gordura. Ele utiliza as mesmas bibliotecas e métodos descritos no notebook anterior.
 
