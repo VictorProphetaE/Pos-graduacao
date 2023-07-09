@@ -1,0 +1,99 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import statsmodels.api as sm
+from statsmodels.tsa.seasonal import seasonal_decompose
+from statsmodels.tsa.stattools import adfuller
+from statsmodels.graphics.tsaplots import plot_acf
+
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn import preprocessing
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_absolute_error, mean_squared_error, mean_absolute_percentage_error
+
+from google.colab import files
+
+# Carregar dados
+uploaded = files.upload()
+
+# Função para verificar a estacionariedade dos dados
+def check_stationarity(time_series):
+    test_result = adfuller(time_series)
+    print('ADF Test:')
+    labels = ['ADF Statistic', 'p-value', 'Lags Used', 'Number of Observations Used']
+    for value, label in zip(test_result, labels):
+        print(label + ': ' + str(value))
+    if test_result[1] <= 0.15:
+        print("Reject null hypothesis and the data is stationary")
+    else:
+        print("Fail to reject H0, therefore, the data is non-stationary")
+
+# Função para realizar a análise de séries temporais
+def analyze_time_series(data, column):
+    # Visualizar dados originais
+    data[column].plot()
+    plt.title(column)
+    plt.show()
+
+    # Calcular média móvel e desvio padrão
+    data_resampled = data.resample('M').mean()
+    rolling_mean = data_resampled[column].rolling(3).mean()
+    rolling_std = data_resampled[column].rolling(3).std()
+
+    # Visualizar média móvel e desvio padrão
+    plt.plot(data_resampled.index, data_resampled[column], label='Original')
+    plt.plot(rolling_mean.index, rolling_mean, label='Rolling Mean')
+    plt.plot(rolling_std.index, rolling_std, label='Rolling Std')
+    plt.legend()
+    plt.title('Rolling Mean and Standard Deviation')
+    plt.show()
+
+    # Decomposição da série temporal
+    decomposition = seasonal_decompose(data_resampled[column])
+    fig = decomposition.plot()
+    fig.set_size_inches(15, 8)
+    plt.show()
+
+    # Verificar estacionariedade dos dados
+    check_stationarity(data_resampled[column])
+
+    # Calcular primeira diferença
+    data['First Difference'] = data[column] - data[column].shift(1)
+    check_stationarity(data['First Difference'].dropna())
+
+    # Plotar função de autocorrelação
+    fig_first = plot_acf(data["First Difference"].dropna())
+
+    # Converter índice de data em valores numéricos
+    data_resampled['Numerical Index'] = range(len(data_resampled))
+
+    # Dividir dados em treinamento e teste
+    X_train, X_test, y_train, y_test = train_test_split(data_resampled['Numerical Index'], data_resampled[column], test_size=0.2, random_state=0)
+
+    # Treinar modelo de regressão linear
+    lr = LinearRegression()
+    lr.fit(X_train.values.reshape(-1, 1), y_train)
+
+    # Prever valores para dados de teste
+    y_pred = lr.predict(X_test.values.reshape(-1, 1))
+
+    # Avaliar desempenho do modelo
+    r2 = lr.score(X_test.values.reshape(-1, 1), y_test)
+    mae = mean_absolute_error(y_test, y_pred)
+    mse = mean_squared_error(y_test, y_pred)
+    mape = mean_absolute_percentage_error(y_test, y_pred)
+
+    print("R-squared:", r2)
+    print("MAE:", mae)
+    print("MSE:", mse)
+    print("MAPE:", mape)
+
+# Carregar dados em um DataFrame
+df = pd.read_excel(next(iter(uploaded.keys())), sheet_name=2)
+df.set_index('Meses', inplace=True)
+
+# Análise da série temporal
+analyze_time_series(df, 'Média proteina mensal')
